@@ -6,8 +6,8 @@ const _ = require('lodash');
 exports.getPosts = (req, res) => {
   Post.find()
   .populate("postedBy", "_id name")
-  .select("_id title body")
-  .then(result => res.json({posts: result}))
+  .select("_id title body created")
+  .then(posts => res.json(posts))
   .catch(err => console.log(err));
 };
 
@@ -41,7 +41,7 @@ exports.createPost = (req, res)=>{
 exports.postsByUser = (req, res)=>{
   Post.find({postedBy: req.profile._id})
   .populate("postedBy", "_id name")
-  .sort("_created")
+  .sort("_created: -1")
   .exec((err, posts) => {
     if(err){
       return res.status(400).json({error: err});
@@ -95,4 +95,9 @@ exports.deletePost = (req, res) =>{
       message: "Post deleted successfully."
     });
   })
+}
+
+exports.photo = (req, res) => {
+  res.set(('Content-Type', req.post.photo.contentType));
+  return res.send(req.post.photo.data);
 }

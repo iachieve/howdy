@@ -39,9 +39,9 @@ app.use(bodyParser.json());
 app.use(cookieParser())
 app.use(expressValidator());
 app.use(cors());
-// app.use(express.json({
-//   type: ['application/json', 'text/plain']
-// }))
+app.use(express.json({
+  type: ['application/json', 'text/plain']
+}))
 
 // routes
 
