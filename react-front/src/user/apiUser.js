@@ -3,7 +3,7 @@ export const read = (userId, token)=>{
     method: "GET",
     headers: {
       Accept: "application/json",
-      "content-typ": "application/json",
+      "content-type": "application/json",
       Authorization: `Bearer ${token}`
     }})
     .then(response => { return response.json() })
@@ -23,7 +23,7 @@ export const remove = (userId, token)=>{
     method: "DELETE",
     headers: {
       Accept: "application/json",
-      "content-typ": "application/json",
+      "content-type": "application/json",
       Authorization: `Bearer ${token}`
     }})
     .then(response => { return response.json() })
@@ -61,7 +61,7 @@ export const follow = (userId, token, followId)=>{
     headers: {
       Accept: "application/json",
       Authorization: `Bearer ${token}`,
-      "content-typ": "application/json",
+      "content-type": "application/json",
     },
     body: JSON.stringify({ userId, followId })
   })
@@ -75,7 +75,7 @@ export const unfollow = (userId, token, unfollowId)=>{
     headers: {
       Accept: "application/json",
       Authorization: `Bearer ${token}`,
-      "content-typ": "application/json",
+      "content-type": "application/json",
     },
     body: JSON.stringify({ userId, unfollowId })
   })
@@ -89,7 +89,7 @@ export const findPeople = (userId, token) => {
     headers: {
       Accept: "application/json",
       Authorization: `Bearer ${token}`,
-      "content-typ": "application/json",
+      "content-type": "application/json",
     }
     })
     .then(response => { return response.json() })

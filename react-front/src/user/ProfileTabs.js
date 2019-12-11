@@ -5,7 +5,7 @@ import DefaultProfile from '../images/avatar.png';
 
 export default class ProfileTabs extends Component {
   render() {
-    const { following, followers } = this.props
+    const { following, followers, posts } = this.props
     return (
       <div className="row">
         <div className="col-md-4"> 
@@ -50,7 +50,17 @@ export default class ProfileTabs extends Component {
           ))}
         </div>
         <div className="col-md-4">
-          <h3 className=" lead">Posts</h3>
+          <h3 className="text-primary">Posts</h3>
+          <hr/>
+          {posts.map((post, i) => (
+            <div key={i}>
+                <div>
+                  <Link to={`/posts/${post._id}`}>
+                    <p className="lead">{post.title}</p>
+                  </Link>
+                </div>
+              </div>
+          ))}
         </div>
       </div>
     )

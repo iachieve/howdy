@@ -52,7 +52,6 @@ class NewPost extends Component {
 
       const userId = isAuthenticated().user._id;
       const token = isAuthenticated().token;
-      console.log('this.postData', this.postData)
       create(userId, token, this.postData)
         .then(data => {
           if (data.error) {

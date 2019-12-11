@@ -25,10 +25,12 @@ const Menu = ({history}) => (
       <Link className="nav-item nav-link" to="/users" style={isActive(history, "/users")}>users</Link>
       
       {!isAuthenticated() ?
-      <>
-      <Link className="nav-item nav-link" to="/signin" style={isActive(history, "/signin")}>sign in</Link>
-      <Link className="nav-item nav-link" to="/signup" style={isActive(history, "/signup")}>sign up</Link>
-      </>
+        <>
+          <Link className="nav-item nav-link" style={isActive(history, `/post/create`)} 
+            to={`/post/create`}>Create New Post</Link>
+          <Link className="nav-item nav-link" to="/signin" style={isActive(history, "/signin")}>sign in</Link>
+          <Link className="nav-item nav-link" to="/signup" style={isActive(history, "/signup")}>sign up</Link>
+        </>
       : ""
       }
 
@@ -45,12 +47,6 @@ const Menu = ({history}) => (
           style={isActive(history, `/findpeople/`)} 
           to={`/findpeople`}>
             Find People
-        </Link>
-
-        <Link className="nav-item nav-link" 
-          style={isActive(history, `/post/create`)} 
-          to={`/post/create`}>
-            Create New Post
         </Link>
 
       </>

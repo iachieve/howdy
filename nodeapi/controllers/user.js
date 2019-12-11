@@ -51,7 +51,6 @@ exports.updateUser = (req, res, next) => {
    
     let user = req.profile;
     user = _.extend(user, fields);
-    console.log('req.body', fields)
     user.updated = Date.now();
     if(user.photo && files.photo){
       user.photo.data = fs.readFileSync(files.photo.path);
