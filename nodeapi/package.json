@@ -6,7 +6,6 @@
   "scripts": {
     "dev": "nodemon app.js",
     "debug": "nodemon --inspect app.js"
-
   },
   "author": "",
   "license": "ISC",
@@ -23,6 +22,7 @@
     "loadash": "^1.0.0",
     "mongoose": "^5.7.14",
     "morgan": "^1.9.1",
+    "nodemailer": "^6.4.2",
     "nodemon": "^2.0.1",
     "uuid": "^3.3.3"
   }
